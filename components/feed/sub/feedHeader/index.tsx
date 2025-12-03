@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
     container: {
         ...flexboxStyles.row,
         maxHeight: 50,
-        paddingHorizontal: 16,
         width: '100%',
     },
     avatarContainer: {

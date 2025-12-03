@@ -1,7 +1,6 @@
-import { FeedHeader } from '@/components/feed/sub/feedHeader/index';
+import { Feed } from '@/components/feed';
 import { Header } from '@/components/header';
 import { StoryList } from '@/components/StoryList';
-import { userStaticData } from '@/constants/staticData';
 import { flexboxStyles } from '@/styles/flexbox';
 import React, { JSX } from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -18,7 +17,7 @@ export default function HomeScreen(): JSX.Element {
       <View style={styles.stateHorizontalListContainer}>
         <StoryList />
       </View>
-        <FeedHeader {...userStaticData[0]} />
+        <Feed />
 
     </SafeAreaView>
   );

@@ -4,49 +4,52 @@ import { userStaticData } from "@/constants/staticData";
 import { flexboxStyles } from "@/styles/flexbox";
 import { getRandomUserInfoFromStaticData } from "@/utils";
 import { StyleSheet, View } from "react-native";
-import { SmallAvatar } from "../ui/SmallAvatar";
-import { Carousel } from "./sub/Carousel";
-import { FeedHeader } from "./sub/FeedHeader";
-import { Footer } from "./sub/Footer";
-import { Resposted } from "./sub/Resposted";
-import { StatisticsAndButton } from "./sub/StatisticsAndButton";
+import { Carousel } from "./sub/carousel";
+import { FeedHeader } from "./sub/feedHeader/index";
+
 
 const styles = StyleSheet.create({
     container: {
-       
+        ...flexboxStyles.column,
+        paddingHorizontal: 16,
     },
 
-    repostContainer: {
-        marginTop: 8,
-        ...flexboxStyles.row,
+    headerContaienr: {
+        marginBottom: 8,
     },
-    restContainer: {
-        marginTop: 12,
-        ...flexboxStyles.row,
+
+    carouselContainer: {
+        marginBottom: 8,
     },
-    dataContainer: {    
-        marginLeft: 8,
-        ...flexboxStyles.column,
+
+    statisticsAndButtonContainer: {
+        marginBottom: 8,
     },
+
+    footerContainer: {
+        marginBottom: 16,
+    },
+
+
 });
 
 
 const userInfo = getRandomUserInfoFromStaticData(userStaticData);
 export const Feed = (): JSX.Element => {
     return (
-        <View style={flexboxStyles.column}>
-            <View style={styles.repostContainer}>
-                <Resposted />
+        <View style={styles.container}>
+            <View style={styles.headerContaienr}>
+                <FeedHeader {...userInfo} />
             </View>
-            <View style={styles.restContainer}>
-                <SmallAvatar {...userInfo} />
-                <View style={styles.dataContainer}>
-                    <FeedHeader />
-                    <Carousel />
-                    <StatisticsAndButton /> 
-                </View>
+            <View style={styles.carouselContainer}>
+               <Carousel />
             </View>
-            <Footer/>
+            <View style={styles.statisticsAndButtonContainer}>
+                {/* <StatisticsAndButton /> */}
+            </View>
+            <View style={styles.footerContainer}>
+                {/* <FeedFooter /> */}
+            </View>
         </View>
     );
 }
