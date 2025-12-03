@@ -8,7 +8,8 @@ import { Image, StyleSheet, Text, View } from "react-native";
 const styles = StyleSheet.create({
     container: {
         ...flexboxStyles.column,
-        ...flexboxStyles.alignItemsCenter
+        ...flexboxStyles.alignItemsCenter,
+        maxWidth:82
     },
 
     seenCircle: {

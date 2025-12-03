@@ -17,10 +17,11 @@ const styles = StyleSheet.create({
         marginLeft: 16,
     },
     lastItemMargin: {
-        marginRight: 16,   
+        marginRight: 16,
+        marginLeft: 10   
     },
     centralItemMargin: {
-        marginHorizontal: 8,
+        marginLeft: 10,
     },
 });
 
