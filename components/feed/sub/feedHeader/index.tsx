@@ -1,38 +1,33 @@
+import { SmallAvatar } from "@/components/ui/SmallAvatar";
+import { SocialInfo } from "@/components/ui/SocialInfo";
 import { flexboxStyles } from "@/styles/flexbox";
+import { BasicUserInfo } from "@/types/user";
 import React, { JSX } from "react";
-
 import { StyleSheet, View } from "react-native";
-import { PostAvatar } from "./sub/PostAvatar";
+import { FollowUnFollowButton } from "./sub/FollowUnfollowButton";
 
 const styles = StyleSheet.create({
     container: {
         ...flexboxStyles.row,
-        ...flexboxStyles.alignItemsCenter,
         maxHeight: 50,
         paddingHorizontal: 16,
+        width: '100%',
+    },
+    avatarContainer: {
+        marginRight: 10,
     },
 });
 
-const getRandomStoryStatus = (): boolean => {
-    return Math.random() < 0.5;
-}
-
-const getRandomAvatarFromUriArray = (): string => {
-    const avatarUris = [
-        "https://example.com/user/avatar1.jpg",
-        "https://example.com/user/avatar2.jpg",
-        "https://example.com/user/avatar3.jpg",
-        "https://example.com/user/avatar4.jpg",
-    ];
-    const randomIndex = Math.floor(Math.random() * avatarUris.length);
-    return avatarUris[randomIndex];
-}
 
 
-export const FeedHeader = (): JSX.Element => {
+export const FeedHeader = (props: BasicUserInfo): JSX.Element => {
     return (
         <View style={styles.container}>
-           <PostAvatar imageUri={getRandomAvatarFromUriArray()} unseenStory={getRandomStoryStatus()} />
+            <View style={styles.avatarContainer}>
+                <SmallAvatar {...props}/>
+            </View>
+            <SocialInfo {...props}/>
+            <FollowUnFollowButton />
         </View>
     );
 }

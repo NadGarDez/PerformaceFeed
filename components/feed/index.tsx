@@ -1,8 +1,10 @@
 import React, { JSX } from "react";
 
+import { userStaticData } from "@/constants/staticData";
 import { flexboxStyles } from "@/styles/flexbox";
+import { getRandomUserInfoFromStaticData } from "@/utils";
 import { StyleSheet, View } from "react-native";
-import { Avatar } from "./sub/Avatar";
+import { SmallAvatar } from "../ui/SmallAvatar";
 import { Carousel } from "./sub/Carousel";
 import { FeedHeader } from "./sub/FeedHeader";
 import { Footer } from "./sub/Footer";
@@ -27,6 +29,9 @@ const styles = StyleSheet.create({
         ...flexboxStyles.column,
     },
 });
+
+
+const userInfo = getRandomUserInfoFromStaticData(userStaticData);
 export const Feed = (): JSX.Element => {
     return (
         <View style={flexboxStyles.column}>
@@ -34,7 +39,7 @@ export const Feed = (): JSX.Element => {
                 <Resposted />
             </View>
             <View style={styles.restContainer}>
-                <Avatar />
+                <SmallAvatar {...userInfo} />
                 <View style={styles.dataContainer}>
                     <FeedHeader />
                     <Carousel />
