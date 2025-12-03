@@ -23,12 +23,18 @@ const styles = StyleSheet.create({
     },
 });
 
-export const SocialInfo = (): JSX.Element => {
+interface props {
+    userName: string;
+    userHandle: string;
+}
+
+export const SocialInfo = (props:props): JSX.Element => {
+    const { userName , userHandle} = props;
     return (
         <View style={styles.container}>
             <View style={styles.textContainer}>
-                <Text style={styles.userNameTextStyle}>Ayesha Khan</Text>
-                <Text style={styles.userHandleTextStyle}>@AyeshaK_Writes</Text>
+                <Text style={styles.userNameTextStyle}>{userName}</Text>
+                <Text style={styles.userHandleTextStyle}>{userHandle}</Text>
             </View>
         </View>
     );

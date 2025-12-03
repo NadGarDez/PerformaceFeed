@@ -1,10 +1,12 @@
 import { flexboxStyles } from "@/styles/flexbox";
 import React, { JSX } from "react";
 
+import { userStaticData } from "@/constants/staticData";
+import { getRandomUserInfoFromStaticData } from "@/utils";
 import { StyleSheet, View } from "react-native";
-import { HeaderAvatar } from "./sub/HeaderAvatar";
+import { SmallAvatar } from "../ui/SmallAvatar";
+import { SocialInfo } from "../ui/SocialInfo";
 import { PlatformTitle } from "./sub/PlatformTitle";
-import { SocialInfo } from "./sub/SocialInfo";
 
 
 const styles = StyleSheet.create({
@@ -27,14 +29,16 @@ const styles = StyleSheet.create({
     },
 });
 
+const userInfo = getRandomUserInfoFromStaticData(userStaticData)
+
 export const Header = (): JSX.Element => {
     return (
         <View style={styles.container}>
             <View style={styles.avatarContainer}>
-                <HeaderAvatar />
+                <SmallAvatar {...userInfo}/>
             </View>
             <View style={styles.socialInfoContainer}>
-                <SocialInfo />
+                <SocialInfo  {...userInfo}/>
             </View>
             <View style={styles.platformTitleContainer}>
                 <PlatformTitle />

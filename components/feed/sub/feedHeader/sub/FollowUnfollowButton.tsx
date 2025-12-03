@@ -1,4 +1,5 @@
 import React, { JSX } from "react";
+
 import { StyleSheet, Text, View } from "react-native";
 
 const styles = StyleSheet.create({
@@ -8,12 +9,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-});
+}); 
 
-export const Avatar = (): JSX.Element => {
+export const FollowUnfollowButton = (): JSX.Element => {
     return (
         <View style={styles.container}>
-            <Text>Avatar Component</Text>
+            <Text>FollowUnfollowButton Component</Text>
         </View>
     );
 }

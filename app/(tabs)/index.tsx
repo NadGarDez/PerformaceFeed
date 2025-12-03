@@ -1,5 +1,5 @@
 import { Header } from '@/components/header';
-import { StateHorizontalList } from '@/components/stateHorizontalList';
+import { StoryList } from '@/components/StoryList';
 import { flexboxStyles } from '@/styles/flexbox';
 import React, { JSX } from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -13,7 +13,7 @@ export default function HomeScreen(): JSX.Element {
     <SafeAreaView style={styles.container}>
       <Header />
       <View style={styles.stateHorizontalListContainer}>
-        <StateHorizontalList />
+        <StoryList />
       </View>
     </SafeAreaView>
   );

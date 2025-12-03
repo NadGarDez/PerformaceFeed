@@ -1,4 +1,5 @@
 import { flexboxStyles } from "@/styles/flexbox";
+import { BasicUserInfo } from "@/types/user";
 import React, { JSX } from "react";
 
 
@@ -43,20 +44,15 @@ const styles = StyleSheet.create({
     },
 });
 
-interface props {
-    imageUri: string;
-    seen: boolean;
-    username: string;
-}
 
-export const UserState = (props: props): JSX.Element => {
+export const UserStory = (props: BasicUserInfo): JSX.Element => {
     return (
         <View style={styles.container}>
             <View style={props.seen ? styles.seenCircle : styles.unseenCircle}>
                 <Image source={{ uri: props.imageUri }} style={styles.avatar} />
             </View>
             <View>
-                <Text style={styles.usernameText} numberOfLines={1}>{props.username}</Text>
+                <Text style={styles.usernameText} numberOfLines={1}>{props.name}</Text>
             </View>
         </View>
     );
