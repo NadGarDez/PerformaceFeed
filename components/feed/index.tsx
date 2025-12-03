@@ -5,6 +5,7 @@ import { flexboxStyles } from "@/styles/flexbox";
 import { getRandomUserInfoFromStaticData } from "@/utils";
 import { StyleSheet, View } from "react-native";
 import { Carousel } from "./sub/carousel";
+import { DescriptionText } from "./sub/description";
 import { FeedHeader } from "./sub/feedHeader/index";
 import { StatisticsAndButton } from "./sub/statisticsAndButton";
 
@@ -49,7 +50,7 @@ export const Feed = (): JSX.Element => {
                 <StatisticsAndButton />
             </View>
             <View style={styles.footerContainer}>
-                {/* <FeedFooter /> */}
+              <DescriptionText />
             </View>
         </View>
     );
