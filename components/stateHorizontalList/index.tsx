@@ -8,10 +8,18 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         maxHeight: 100,
-        paddingHorizontal: 16,
         overflow: 'hidden',
         ...flexboxStyles.row
-    }
+    },
+    firtsItemMargin: {
+        marginLeft: 16,
+    },
+    lastItemMargin: {
+        marginRight: 16,   
+    },
+    centralItemMargin: {
+        marginHorizontal: 8,
+    },
 });
 
 interface UserStateData {
@@ -45,8 +53,10 @@ export const StateHorizontalList = (): JSX.Element => {
                 keyExtractor={(_, index) => index.toString()}
                 getItemCount={(data) => data.length}
                 getItem={(data, index) => data[index]}
-                renderItem={({ item }) => (
-                    <View style={{ marginRight: 8}}>
+                renderItem={({ item , index}) => (
+                    <View style={[
+                        index === 0 ? styles.firtsItemMargin : index === staticData.length -1 ? styles.lastItemMargin : styles.centralItemMargin
+                    ]} >
                         <UserState imageUri={item.imageUri} seen={item.seen} username={item.username} />
                     </View>
                 )}
