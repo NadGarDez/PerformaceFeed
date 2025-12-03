@@ -6,6 +6,7 @@ import { getRandomUserInfoFromStaticData } from "@/utils";
 import { StyleSheet, View } from "react-native";
 import { Carousel } from "./sub/carousel";
 import { FeedHeader } from "./sub/feedHeader/index";
+import { StatisticsAndButton } from "./sub/statisticsAndButton";
 
 
 const styles = StyleSheet.create({
@@ -45,7 +46,7 @@ export const Feed = (): JSX.Element => {
                <Carousel />
             </View>
             <View style={styles.statisticsAndButtonContainer}>
-                {/* <StatisticsAndButton /> */}
+                <StatisticsAndButton />
             </View>
             <View style={styles.footerContainer}>
                 {/* <FeedFooter /> */}

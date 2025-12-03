@@ -1,7 +1,12 @@
 import { flexboxStyles } from "@/styles/flexbox";
-import React, { JSX } from "react";
-
-import { StyleSheet, Text, View } from "react-native";
+import React, { JSX, useState } from "react";
+import {
+    Animated,
+    Easing,
+    StyleSheet,
+    Text,
+    TouchableOpacity
+} from "react-native";
 
 const styles = StyleSheet.create({
     container: {
@@ -31,27 +36,51 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontWeight: '600',
     },
-
 });
 
 const randomFollowed = Math.random() < 0.5;
 
 export const FollowUnFollowButton = (): JSX.Element => {
+    const [isFollowing, setIsFollowing] = useState<boolean>(randomFollowed);
+    const [scaleAnim] = useState(new Animated.Value(1));
+
+    const handleToggleFollow = () => {
+        // Animación de pulsación
+        Animated.sequence([
+            Animated.timing(scaleAnim, {
+                toValue: 0.95,
+                duration: 100,
+                easing: Easing.ease,
+                useNativeDriver: true,
+            }),
+            Animated.timing(scaleAnim, {
+                toValue: 1,
+                duration: 100,
+                easing: Easing.ease,
+                useNativeDriver: true,
+            }),
+        ]).start();
+
+        // Cambiar estado
+        setIsFollowing(!isFollowing);
+    };
+
     return (
-        <View style={styles.container}>
-
-            {
-                !randomFollowed  ? (
-                    <View style={styles.followButtonStyle}>
-                        <Text style={styles.followButtonTextStyle}>Follow</Text>
-                    </View>
-                ) : (
-                <View style={styles.following}>
-                    <Text style={styles.followingButtonTextStyle}>Following</Text>
-                </View>
-                )
-            }
-        </View>
-
+        <TouchableOpacity 
+            onPress={handleToggleFollow}
+            activeOpacity={0.8}
+            style={styles.container}
+        >
+            <Animated.View 
+                style={[
+                    isFollowing ? styles.following : styles.followButtonStyle,
+                    { transform: [{ scale: scaleAnim }] }
+                ]}
+            >
+                <Text style={isFollowing ? styles.followingButtonTextStyle : styles.followButtonTextStyle}>
+                    {isFollowing ? 'Following' : 'Follow'}
+                </Text>
+            </Animated.View>
+        </TouchableOpacity>
     );
 }

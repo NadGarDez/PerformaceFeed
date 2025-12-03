@@ -18,14 +18,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export const ToogleableHeartButton = () => {
-  const randomLike = Math.random() < 0.5;
-  const [liked, setLiked] = useState<boolean>(randomLike);
+export const MessageButton = () => {
   const [scaleAnim] = useState(new Animated.Value(1));
 
   const handlePress = () => {
-    const newLiked = !liked;
-
     Animated.sequence([
       Animated.timing(scaleAnim, {
         toValue: 1.3,
@@ -40,8 +36,6 @@ export const ToogleableHeartButton = () => {
         useNativeDriver: true,
       }),
     ]).start();
-
-    setLiked(newLiked);
   };
 
   return (
@@ -57,9 +51,9 @@ export const ToogleableHeartButton = () => {
         ]}
       >
         <Ionicons
-          name={liked ? 'heart' : 'heart-outline'}
+          name="chatbubble-outline"
           size={25}
-          color={liked ? 'red' : 'gray'}
+          color="gray"
         />
       </Animated.View>
     </TouchableOpacity>
