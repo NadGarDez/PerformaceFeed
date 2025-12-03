@@ -57,6 +57,25 @@ export const flexboxStyles = StyleSheet.create({
         justifyContent: 'flex-end',
         alignItems: 'center',
     },
+    columJustifyCenterFlexStart: {
+        display: 'flex',
+        flexDirection: 'column',   
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+    },
+    columJustifyCenterFlexEnd: {
+        display: 'flex',
+        flexDirection: 'column',   
+        justifyContent: 'center',
+        alignItems: 'flex-end',
+    },
+
+    alignItemsCenter: {
+        alignItems: 'center',
+    },
+    justifyContentCenter: {
+        justifyContent: 'center',
+    },
     flex1: {
         flex: 1,
     },
