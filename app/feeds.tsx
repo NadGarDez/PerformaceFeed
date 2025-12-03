@@ -1,9 +1,9 @@
 import React, { JSX } from 'react';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
-const FILE_NAME = 'HomeScreen';
+const FILE_NAME = 'app/feeds.tsx';
 
-export default function HomeScreen(): JSX.Element {
+export default function FeedsScreen(): JSX.Element {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.card}>
