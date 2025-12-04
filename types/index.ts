@@ -1,7 +1,7 @@
 
 
 interface BasicUserInfo {
-    id: string, 
+    id: string,
     imageUri: string;
     seen: boolean;
     username: string;
@@ -24,6 +24,8 @@ interface Post {
         likes: number,
         comments: number,
         shares: number
+        createdAt: string,
+
     }
 
 }
