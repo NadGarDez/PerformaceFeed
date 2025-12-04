@@ -1,4 +1,4 @@
-import { Feed } from '@/components/feed';
+import { FeedList } from '@/components/feedList';
 import { Header } from '@/components/header';
 import { StoryList } from '@/components/StoryList';
 import { flexboxStyles } from '@/styles/flexbox';
@@ -17,8 +17,7 @@ export default function HomeScreen(): JSX.Element {
       <View style={styles.stateHorizontalListContainer}>
         <StoryList />
       </View>
-        <Feed />
-
+      <FeedList />
     </SafeAreaView>
   );
 }
