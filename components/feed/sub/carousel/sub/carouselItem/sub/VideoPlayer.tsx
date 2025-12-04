@@ -14,7 +14,6 @@ export const VideoPlayer = memo(
     const { uri } = props;
     const player = useVideoPlayer(uri, player => {
       player.loop = true;
-      player.play();
     });
 
     return (

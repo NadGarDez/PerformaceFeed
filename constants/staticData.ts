@@ -117,8 +117,6 @@ const userStaticData: BasicUserInfo[] = [
 ];
 
 
-
-
 const staticPosts: Post[] = [
     {
         id: "post_1",
@@ -133,7 +131,7 @@ const staticPosts: Post[] = [
             sources: [
                 { type: 'video', url: 'https://test-streams.mux.dev/tos_ismc/main.m3u8' },
                 { type: 'video', url: 'https://devstreaming-cdn.apple.com/videos/streaming/examples/adv_dv_atmos/main.m3u8' },
-                { type: 'video', url: 'https://cph-msl.akamaized.net/hls/live/2000341/test/master.m3u8' }
+                { type: 'video', url: 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8?ref=developerinsider.co' } // ⬅️ CAMBIADO
             ],
             description: "Mira esta increíble colección de clips sobre \"Tears of Steel\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 1 de nuestra serie.",
             likes: 6479,
@@ -176,7 +174,7 @@ const staticPosts: Post[] = [
             sources: [
                 { type: 'video', url: 'https://test-streams.mux.dev/tos_ismc/main.m3u8' },
                 { type: 'video', url: 'https://test-streams.mux.dev/dai-discontinuity-deltatre/manifest.m3u8' },
-                { type: 'video', url: 'https://cph-msl.akamaized.net/hls/live/2000341/test/master.m3u8' }
+                { type: 'video', url: 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8?ref=developerinsider.co' } // ⬅️ CAMBIADO
             ],
             description: "Mira esta increíble colección de clips sobre \"For Bigger Meltdowns\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 3 de nuestra serie.",
             likes: 10255,
@@ -196,7 +194,7 @@ const staticPosts: Post[] = [
         },
         data: {
             sources: [
-                { type: 'video', url: 'https://cph-msl.akamaized.net/hls/live/2000341/test/master.m3u8' },
+                { type: 'video', url: 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8?ref=developerinsider.co' }, // ⬅️ CAMBIADO
                 { type: 'video', url: 'https://devstreaming-cdn.apple.com/videos/streaming/examples/adv_dv_atmos/main.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"For Bigger Blazes\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 4 de nuestra serie.",
@@ -239,7 +237,7 @@ const staticPosts: Post[] = [
         data: {
             sources: [
                 { type: 'video', url: 'https://devstreaming-cdn.apple.com/videos/streaming/examples/adv_dv_atmos/main.m3u8' },
-                { type: 'video', url: 'https://cph-msl.akamaized.net/hls/live/2000341/test/master.m3u8' },
+                { type: 'video', url: 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8?ref=developerinsider.co' }, // ⬅️ CAMBIADO
                 { type: 'video', url: 'https://test-streams.mux.dev/tos_ismc/main.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"We Are Going On Bullrun\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 6 de nuestra serie.",
@@ -281,7 +279,7 @@ const staticPosts: Post[] = [
         },
         data: {
             sources: [
-                { type: 'video', url: 'https://cph-msl.akamaized.net/hls/live/2000341/test/master.m3u8' },
+                { type: 'video', url: 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8?ref=developerinsider.co' }, // ⬅️ CAMBIADO
                 { type: 'video', url: 'https://test-streams.mux.dev/tos_ismc/main.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"Elephant Dream\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 8 de nuestra serie.",
@@ -304,7 +302,7 @@ const staticPosts: Post[] = [
             sources: [
                 { type: 'video', url: 'https://devstreaming-cdn.apple.com/videos/streaming/examples/adv_dv_atmos/main.m3u8' },
                 { type: 'video', url: 'https://test-streams.mux.dev/dai-discontinuity-deltatre/manifest.m3u8' },
-                { type: 'video', url: 'https://cph-msl.akamaized.net/hls/live/2000341/test/master.m3u8' }
+                { type: 'video', url: 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8?ref=developerinsider.co' } // ⬅️ CAMBIADO
             ],
             description: "Mira esta increíble colección de clips sobre \"Volkswagen GTI Review\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 9 de nuestra serie.",
             likes: 8122,
@@ -346,7 +344,7 @@ const staticPosts: Post[] = [
         data: {
             sources: [
                 { type: 'video', url: 'https://test-streams.mux.dev/dai-discontinuity-deltatre/manifest.m3u8' },
-                { type: 'video', url: 'https://cph-msl.akamaized.net/hls/live/2000341/test/master.m3u8' },
+                { type: 'video', url: 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8?ref=developerinsider.co' }, // ⬅️ CAMBIADO
                 { type: 'video', url: 'https://devstreaming-cdn.apple.com/videos/streaming/examples/adv_dv_atmos/main.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"Sintel\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 11 de nuestra serie.",
@@ -388,7 +386,7 @@ const staticPosts: Post[] = [
         },
         data: {
             sources: [
-                { type: 'video', url: 'https://cph-msl.akamaized.net/hls/live/2000341/test/master.m3u8' },
+                { type: 'video', url: 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8?ref=developerinsider.co' }, // ⬅️ CAMBIADO
                 { type: 'video', url: 'https://test-streams.mux.dev/tos_ismc/main.m3u8' },
                 { type: 'video', url: 'https://devstreaming-cdn.apple.com/videos/streaming/examples/adv_dv_atmos/main.m3u8' }
             ],
@@ -431,7 +429,7 @@ const staticPosts: Post[] = [
         },
         data: {
             sources: [
-                { type: 'video', url: 'https://cph-msl.akamaized.net/hls/live/2000341/test/master.m3u8' },
+                { type: 'video', url: 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8?ref=developerinsider.co' }, // ⬅️ CAMBIADO
                 { type: 'video', url: 'https://test-streams.mux.dev/tos_ismc/main.m3u8' },
                 { type: 'video', url: 'https://devstreaming-cdn.apple.com/videos/streaming/examples/adv_dv_atmos/main.m3u8' }
             ],
@@ -474,7 +472,7 @@ const staticPosts: Post[] = [
         },
         data: {
             sources: [
-                { type: 'video', url: 'https://cph-msl.akamaized.net/hls/live/2000341/test/master.m3u8' },
+                { type: 'video', url: 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8?ref=developerinsider.co' }, // ⬅️ CAMBIADO
                 { type: 'video', url: 'https://devstreaming-cdn.apple.com/videos/streaming/examples/adv_dv_atmos/main.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"We Are Going On Bullrun\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 17 de nuestra serie.",
@@ -497,7 +495,7 @@ const staticPosts: Post[] = [
             sources: [
                 { type: 'video', url: 'https://test-streams.mux.dev/tos_ismc/main.m3u8' },
                 { type: 'video', url: 'https://test-streams.mux.dev/dai-discontinuity-deltatre/manifest.m3u8' },
-                { type: 'video', url: 'https://cph-msl.akamaized.net/hls/live/2000341/test/master.m3u8' }
+                { type: 'video', url: 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8?ref=developerinsider.co' } // ⬅️ CAMBIADO
             ],
             description: "Mira esta increíble colección de clips sobre \"What care can you get for a grand?\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 18 de nuestra serie.",
             likes: 12550,
@@ -539,7 +537,7 @@ const staticPosts: Post[] = [
         data: {
             sources: [
                 { type: 'video', url: 'https://test-streams.mux.dev/dai-discontinuity-deltatre/manifest.m3u8' },
-                { type: 'video', url: 'https://cph-msl.akamaized.net/hls/live/2000341/test/master.m3u8' },
+                { type: 'video', url: 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8?ref=developerinsider.co' },
                 { type: 'video', url: 'https://test-streams.mux.dev/tos_ismc/main.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"For Bigger Blazes\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 20 de nuestra serie.",
