@@ -23,7 +23,7 @@ export const useVideoPlayerWrapper = (options: options): VideoPlayer | null => {
         let intervalId = null;
 
         if (isActive) {
-            // player.play();
+            player.play();
 
             intervalId = setInterval(() => {
                 lastTimeSaved.current = player.currentTime;

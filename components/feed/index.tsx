@@ -41,6 +41,8 @@ type props = Post & {
 export const Feed = memo(
     (props: props): JSX.Element => {
         const { user, data: {sources, description , ...rest} , rule} = props;
+
+        console.log(rule )
         return (
             <View style={styles.container}>
                 <View style={styles.headerContaienr}>
