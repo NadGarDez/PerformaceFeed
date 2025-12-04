@@ -9,7 +9,7 @@ interface BasicUserInfo {
 }
 
 
-interface source {
+export interface source {
     type: 'image' | 'video',
     url: string
 }

@@ -33,14 +33,16 @@ const styles = StyleSheet.create({
     }
 });
 
-
-const randomLikeNumber = Math.floor(Math.random() * 1000);
-const randomMessageNumber = Math.floor(Math.random() * 2000)
-const randomShareNumber = Math.floor(Math.random() * 3000)
-
+interface props {
+    likes: number,
+    comments: number,
+    shares: number
+}
 
 export const StatisticsAndButton = memo(
-    (): JSX.Element => {
+    (props: props): JSX.Element => {
+
+        const {likes, comments, shares} = props;
         return (
             <View style={styles.container}>
                 <View style={styles.iconPlusStaticContainer}>
@@ -48,7 +50,7 @@ export const StatisticsAndButton = memo(
                         <ToogleableHeartButton />
                     </View>
                     <Text style={styles.statisticsText}>
-                        {randomLikeNumber}
+                        {likes}
                     </Text>
                 </View>
                 <View style={styles.iconPlusStaticContainer}>
@@ -56,7 +58,7 @@ export const StatisticsAndButton = memo(
                         <MessageButton />
                     </View>
                     <Text style={styles.statisticsText}>
-                        {randomMessageNumber}
+                        {comments}
                     </Text>
                 </View>
                 <View style={styles.iconPlusStaticContainer}>
@@ -64,7 +66,7 @@ export const StatisticsAndButton = memo(
                         <ShareButton />
                     </View>
                     <Text style={styles.statisticsText}>
-                        {randomShareNumber}
+                        {shares}
                     </Text>
                 </View>
                 <View style={styles.optionsContainer}>

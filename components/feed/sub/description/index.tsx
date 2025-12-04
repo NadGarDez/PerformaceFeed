@@ -26,11 +26,15 @@ const styles = StyleSheet.create({
     }
 });
 
-const sampleText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-
 const MAX_LINES = 3;
 
-export const DescriptionText = (): JSX.Element => {
+interface props {
+    text: string
+}
+
+export const DescriptionText = (props:props): JSX.Element => {
+
+    const {text} = props;
     const [collapsed, setCollapsed] = useState<boolean>(true);
 
     const handleToggle = () => {
@@ -44,7 +48,7 @@ export const DescriptionText = (): JSX.Element => {
                 style={styles.text}
                 numberOfLines={collapsed ? MAX_LINES : undefined}
             >
-                {sampleText}
+                {text}
             </Text>
             
             <TouchableOpacity 

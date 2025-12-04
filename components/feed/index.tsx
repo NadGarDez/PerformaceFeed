@@ -1,8 +1,7 @@
-import React, { JSX } from "react";
+import React, { JSX, memo } from "react";
 
-import { userStaticData } from "@/constants/staticData";
 import { flexboxStyles } from "@/styles/flexbox";
-import { getRandomUserInfoFromStaticData } from "@/utils";
+import { Post } from "@/types";
 import { StyleSheet, View } from "react-native";
 import { Carousel } from "./sub/carousel";
 import { DescriptionText } from "./sub/description";
@@ -36,22 +35,26 @@ const styles = StyleSheet.create({
 });
 
 
-const userInfo = getRandomUserInfoFromStaticData(userStaticData);
-export const Feed = (): JSX.Element => {
-    return (
-        <View style={styles.container}>
-            <View style={styles.headerContaienr}>
-                <FeedHeader {...userInfo} />
+export const Feed = memo(
+    (props: Post): JSX.Element => {
+        const { user, data: {sources, description , ...rest} } = props;
+        return (
+            <View style={styles.container}>
+                <View style={styles.headerContaienr}>
+                    <FeedHeader {...user} />
+                </View>
+                <View style={styles.carouselContainer}>
+                    <Carousel  sources={sources}/>
+                </View>
+                <View style={styles.statisticsAndButtonContainer}>
+                    <StatisticsAndButton {...rest}/>
+                </View>
+                <View style={styles.footerContainer}>
+                    <DescriptionText  text={description}/>
+                </View>
             </View>
-            <View style={styles.carouselContainer}>
-               <Carousel />
-            </View>
-            <View style={styles.statisticsAndButtonContainer}>
-                <StatisticsAndButton />
-            </View>
-            <View style={styles.footerContainer}>
-              <DescriptionText />
-            </View>
-        </View>
-    );
-}
+        );
+    }
+)
+
+

@@ -1,3 +1,4 @@
+import { staticPosts } from "@/constants/staticData";
 import { FlashList } from "@shopify/flash-list";
 import React, { JSX } from "react";
 import { StyleSheet } from "react-native";
@@ -10,13 +11,12 @@ const styles = StyleSheet.create({
     }
 })
 
-const feedsNumber = Array(200).fill(0);
 
 export const FeedList = ():JSX.Element => {
     return (
         <FlashList 
-            data={feedsNumber}
-            renderItem={()=><Feed />}
+            data={staticPosts}
+            renderItem={({item})=><Feed  {...item}/>}
             keyExtractor={(_, index) => `feed_${index}`} 
             style={styles.container}
         />
