@@ -7,21 +7,14 @@ import { VideoPlayer } from "./sub/VideoPlayer";
 
 const styles = StyleSheet.create({
     container: {
-        display: 'flex',
+       flex:1,
+        alignItems: 'center',
+    justifyContent: 'center',
+
     },
 });
 
-const images = [
-    'https://cdn.pixabay.com/photo/2025/11/26/15/14/15-14-15-273_1280.jpg',
-    'https://cdn.pixabay.com/photo/2025/11/26/15/15/15-15-04-191_1280.jpg',
-    'https://cdn.pixabay.com/photo/2025/12/01/09/00/09-00-38-98_1280.jpg',
-    'https://cdn.pixabay.com/photo/2014/02/27/16/08/owl-275942_1280.jpg',]
 
-
-const getRandomImage = (): string => {
-    const randomIndex = Math.floor(Math.random() * images.length);
-    return images[randomIndex];
-}
 
 interface props {
     source:source
@@ -45,11 +38,11 @@ export const CarouselItem = memo(
             },
             [source]
         )
-
+        console.log(source.url)
 
         return (
             <View style={styles.container}>
-                <Source uri={source.url}/>
+                <VideoPlayer uri="https://avtshare01.rz.tu-ilmenau.de/avt-vqdb-uhd-1/test_1/segments/bigbuck_bunny_8bit_15000kbps_1080p_60.0fps_h264.mp4" />
             </View>
         );
     }

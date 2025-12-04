@@ -27,14 +27,18 @@ export const VideoPlayer = memo(
 
 const styles = StyleSheet.create({
   contentContainer: {
+    width: '100%',
+    height: '100%',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: 'gray',
+    borderRadius: 15,
+    overflow:'hidden'
   },
   video: {
     width: '100%',
-    height: 300,
-    borderRadius: 10
+    height: '100%',
   },
- 
+
 });

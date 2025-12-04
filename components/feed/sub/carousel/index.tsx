@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     container: {
         display: 'flex',
         width: '100%',
-        height: 300
+        height: 300,
     },
     idicatorStyles: {
         position: 'absolute',
