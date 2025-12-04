@@ -131,9 +131,9 @@ const staticPosts: Post[] = [
         },
         data: {
             sources: [
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4' }
+                { type: 'video', url: 'https://test-streams.mux.dev/tos_ismc/main.m3u8' },
+                { type: 'video', url: 'https://devstreaming-cdn.apple.com/videos/streaming/examples/adv_dv_atmos/main.m3u8' },
+                { type: 'video', url: 'https://cph-msl.akamaized.net/hls/live/2000341/test/master.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"Tears of Steel\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 1 de nuestra serie.",
             likes: 6479,
@@ -153,8 +153,8 @@ const staticPosts: Post[] = [
         },
         data: {
             sources: [
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4' }
+                { type: 'video', url: 'https://test-streams.mux.dev/dai-discontinuity-deltatre/manifest.m3u8' },
+                { type: 'video', url: 'https://devstreaming-cdn.apple.com/videos/streaming/examples/adv_dv_atmos/main.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"Big Buck Bunny\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 2 de nuestra serie.",
             likes: 1234,
@@ -174,9 +174,9 @@ const staticPosts: Post[] = [
         },
         data: {
             sources: [
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4' }
+                { type: 'video', url: 'https://test-streams.mux.dev/tos_ismc/main.m3u8' },
+                { type: 'video', url: 'https://test-streams.mux.dev/dai-discontinuity-deltatre/manifest.m3u8' },
+                { type: 'video', url: 'https://cph-msl.akamaized.net/hls/live/2000341/test/master.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"For Bigger Meltdowns\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 3 de nuestra serie.",
             likes: 10255,
@@ -196,8 +196,8 @@ const staticPosts: Post[] = [
         },
         data: {
             sources: [
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4' }
+                { type: 'video', url: 'https://cph-msl.akamaized.net/hls/live/2000341/test/master.m3u8' },
+                { type: 'video', url: 'https://devstreaming-cdn.apple.com/videos/streaming/examples/adv_dv_atmos/main.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"For Bigger Blazes\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 4 de nuestra serie.",
             likes: 4501,
@@ -217,8 +217,8 @@ const staticPosts: Post[] = [
         },
         data: {
             sources: [
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4' }
+                { type: 'video', url: 'https://test-streams.mux.dev/dai-discontinuity-deltatre/manifest.m3u8' },
+                { type: 'video', url: 'https://test-streams.mux.dev/tos_ismc/main.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"Subaru Outback On Street And Dirt\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 5 de nuestra serie.",
             likes: 7890,
@@ -238,9 +238,9 @@ const staticPosts: Post[] = [
         },
         data: {
             sources: [
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4' }
+                { type: 'video', url: 'https://devstreaming-cdn.apple.com/videos/streaming/examples/adv_dv_atmos/main.m3u8' },
+                { type: 'video', url: 'https://cph-msl.akamaized.net/hls/live/2000341/test/master.m3u8' },
+                { type: 'video', url: 'https://test-streams.mux.dev/tos_ismc/main.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"We Are Going On Bullrun\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 6 de nuestra serie.",
             likes: 3105,
@@ -260,8 +260,8 @@ const staticPosts: Post[] = [
         },
         data: {
             sources: [
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4' }
+                { type: 'video', url: 'https://test-streams.mux.dev/dai-discontinuity-deltatre/manifest.m3u8' },
+                { type: 'video', url: 'https://devstreaming-cdn.apple.com/videos/streaming/examples/adv_dv_atmos/main.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"What care can you get for a grand?\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 7 de nuestra serie.",
             likes: 14890,
@@ -281,8 +281,8 @@ const staticPosts: Post[] = [
         },
         data: {
             sources: [
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4' }
+                { type: 'video', url: 'https://cph-msl.akamaized.net/hls/live/2000341/test/master.m3u8' },
+                { type: 'video', url: 'https://test-streams.mux.dev/tos_ismc/main.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"Elephant Dream\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 8 de nuestra serie.",
             likes: 987,
@@ -302,9 +302,9 @@ const staticPosts: Post[] = [
         },
         data: {
             sources: [
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4' }
+                { type: 'video', url: 'https://devstreaming-cdn.apple.com/videos/streaming/examples/adv_dv_atmos/main.m3u8' },
+                { type: 'video', url: 'https://test-streams.mux.dev/dai-discontinuity-deltatre/manifest.m3u8' },
+                { type: 'video', url: 'https://cph-msl.akamaized.net/hls/live/2000341/test/master.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"Volkswagen GTI Review\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 9 de nuestra serie.",
             likes: 8122,
@@ -324,8 +324,8 @@ const staticPosts: Post[] = [
         },
         data: {
             sources: [
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4' }
+                { type: 'video', url: 'https://test-streams.mux.dev/tos_ismc/main.m3u8' },
+                { type: 'video', url: 'https://devstreaming-cdn.apple.com/videos/streaming/examples/adv_dv_atmos/main.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"For Bigger Fun\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 10 de nuestra serie.",
             likes: 670,
@@ -345,9 +345,9 @@ const staticPosts: Post[] = [
         },
         data: {
             sources: [
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4' }
+                { type: 'video', url: 'https://test-streams.mux.dev/dai-discontinuity-deltatre/manifest.m3u8' },
+                { type: 'video', url: 'https://cph-msl.akamaized.net/hls/live/2000341/test/master.m3u8' },
+                { type: 'video', url: 'https://devstreaming-cdn.apple.com/videos/streaming/examples/adv_dv_atmos/main.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"Sintel\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 11 de nuestra serie.",
             likes: 14002,
@@ -367,8 +367,8 @@ const staticPosts: Post[] = [
         },
         data: {
             sources: [
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4' }
+                { type: 'video', url: 'https://test-streams.mux.dev/tos_ismc/main.m3u8' },
+                { type: 'video', url: 'https://test-streams.mux.dev/dai-discontinuity-deltatre/manifest.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"For Bigger Joyrides\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 12 de nuestra serie.",
             likes: 2987,
@@ -388,9 +388,9 @@ const staticPosts: Post[] = [
         },
         data: {
             sources: [
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4' }
+                { type: 'video', url: 'https://cph-msl.akamaized.net/hls/live/2000341/test/master.m3u8' },
+                { type: 'video', url: 'https://test-streams.mux.dev/tos_ismc/main.m3u8' },
+                { type: 'video', url: 'https://devstreaming-cdn.apple.com/videos/streaming/examples/adv_dv_atmos/main.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"For Bigger Escape\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 13 de nuestra serie.",
             likes: 11200,
@@ -410,8 +410,8 @@ const staticPosts: Post[] = [
         },
         data: {
             sources: [
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4' }
+                { type: 'video', url: 'https://devstreaming-cdn.apple.com/videos/streaming/examples/adv_dv_atmos/main.m3u8' },
+                { type: 'video', url: 'https://test-streams.mux.dev/dai-discontinuity-deltatre/manifest.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"Tears of Steel\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 14 de nuestra serie.",
             likes: 5410,
@@ -431,9 +431,9 @@ const staticPosts: Post[] = [
         },
         data: {
             sources: [
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4' }
+                { type: 'video', url: 'https://cph-msl.akamaized.net/hls/live/2000341/test/master.m3u8' },
+                { type: 'video', url: 'https://test-streams.mux.dev/tos_ismc/main.m3u8' },
+                { type: 'video', url: 'https://devstreaming-cdn.apple.com/videos/streaming/examples/adv_dv_atmos/main.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"For Bigger Meltdowns\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 15 de nuestra serie.",
             likes: 15000,
@@ -453,8 +453,8 @@ const staticPosts: Post[] = [
         },
         data: {
             sources: [
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4' }
+                { type: 'video', url: 'https://test-streams.mux.dev/dai-discontinuity-deltatre/manifest.m3u8' },
+                { type: 'video', url: 'https://test-streams.mux.dev/tos_ismc/main.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"Elephant Dream\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 16 de nuestra serie.",
             likes: 501,
@@ -474,8 +474,8 @@ const staticPosts: Post[] = [
         },
         data: {
             sources: [
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4' }
+                { type: 'video', url: 'https://cph-msl.akamaized.net/hls/live/2000341/test/master.m3u8' },
+                { type: 'video', url: 'https://devstreaming-cdn.apple.com/videos/streaming/examples/adv_dv_atmos/main.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"We Are Going On Bullrun\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 17 de nuestra serie.",
             likes: 7200,
@@ -495,9 +495,9 @@ const staticPosts: Post[] = [
         },
         data: {
             sources: [
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4' }
+                { type: 'video', url: 'https://test-streams.mux.dev/tos_ismc/main.m3u8' },
+                { type: 'video', url: 'https://test-streams.mux.dev/dai-discontinuity-deltatre/manifest.m3u8' },
+                { type: 'video', url: 'https://cph-msl.akamaized.net/hls/live/2000341/test/master.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"What care can you get for a grand?\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 18 de nuestra serie.",
             likes: 12550,
@@ -517,8 +517,8 @@ const staticPosts: Post[] = [
         },
         data: {
             sources: [
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4' }
+                { type: 'video', url: 'https://devstreaming-cdn.apple.com/videos/streaming/examples/adv_dv_atmos/main.m3u8' },
+                { type: 'video', url: 'https://test-streams.mux.dev/tos_ismc/main.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"Big Buck Bunny\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 19 de nuestra serie.",
             likes: 9540,
@@ -538,9 +538,9 @@ const staticPosts: Post[] = [
         },
         data: {
             sources: [
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4' },
-                { type: 'video', url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4' }
+                { type: 'video', url: 'https://test-streams.mux.dev/dai-discontinuity-deltatre/manifest.m3u8' },
+                { type: 'video', url: 'https://cph-msl.akamaized.net/hls/live/2000341/test/master.m3u8' },
+                { type: 'video', url: 'https://test-streams.mux.dev/tos_ismc/main.m3u8' }
             ],
             description: "Mira esta increíble colección de clips sobre \"For Bigger Blazes\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 20 de nuestra serie.",
             likes: 3880,

@@ -42,7 +42,7 @@ export const CarouselItem = memo(
 
         return (
             <View style={styles.container}>
-                <VideoPlayer uri="https://avtshare01.rz.tu-ilmenau.de/avt-vqdb-uhd-1/test_1/segments/bigbuck_bunny_8bit_15000kbps_1080p_60.0fps_h264.mp4" />
+               <Source uri={source.url}/>
             </View>
         );
     }
