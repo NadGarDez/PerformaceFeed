@@ -16,7 +16,7 @@ export const FeedList = ():JSX.Element => {
     return (
         <FlashList 
             data={staticPosts}
-            renderItem={({item})=><Feed  {...item}/>}
+            renderItem={({item})=><Feed rule={1} {...item}/>}
             keyExtractor={(_, index) => `feed_${index}`} 
             style={styles.container}
         />

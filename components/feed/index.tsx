@@ -34,17 +34,20 @@ const styles = StyleSheet.create({
 
 });
 
+type props = Post & {
+    rule: number
+}
 
 export const Feed = memo(
-    (props: Post): JSX.Element => {
-        const { user, data: {sources, description , ...rest} } = props;
+    (props: props): JSX.Element => {
+        const { user, data: {sources, description , ...rest} , rule} = props;
         return (
             <View style={styles.container}>
                 <View style={styles.headerContaienr}>
                     <FeedHeader {...user} />
                 </View>
                 <View style={styles.carouselContainer}>
-                    <Carousel  sources={sources}/>
+                    <Carousel rule={rule} sources={sources}/>
                 </View>
                 <View style={styles.statisticsAndButtonContainer}>
                     <StatisticsAndButton {...rest}/>

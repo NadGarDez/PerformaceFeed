@@ -5,7 +5,7 @@ import { StyleSheet, View } from "react-native";
 import PagerView, { PagerViewOnPageSelectedEvent } from 'react-native-pager-view';
 import { CarouselItem } from "./sub/carouselItem";
 import { PagerIndicator } from "./sub/PageIndicator";
-import { restRule } from "./utils";
+import { ruleSelector } from "./utils";
 
 const styles = StyleSheet.create({
     container: {
@@ -20,15 +20,15 @@ const styles = StyleSheet.create({
     }
 });
 
-
 interface props {
-    sources: source[]
+    sources: source[],
+    rule: number
 }
 
 export const Carousel = memo( // en este archivo se gestionaria la lectura de la matriz de videos 
     (props: props): React.JSX.Element => {
 
-        const { sources } = props
+        const { sources, rule } = props
 
         const [currentPage, setCurrentPage] = useState<number>(1);
 
@@ -42,9 +42,9 @@ export const Carousel = memo( // en este archivo se gestionaria la lectura de la
 
         const getItemStatus = useCallback(
             (pageIndex: number): videoStatus => {
-                return restRule(pageIndex, currentPage)
+                return ruleSelector[rule](pageIndex,currentPage)
             },
-            [currentPage, restRule]
+            [currentPage, ruleSelector]
         )
 
         return (
