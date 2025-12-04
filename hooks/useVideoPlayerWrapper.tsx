@@ -7,36 +7,40 @@ interface options {
     uri: string,
     isActive: boolean,
     initialization: number,
-    cleanUp?: (currentTime: number) => void 
+    cleanUp?: (currentTime: number) => void
 }
 
-export const useVideoPlayerWrapper = (options: options): VideoPlayer | null => { 
+export const useVideoPlayerWrapper = (options: options): VideoPlayer | null => {
     const { initialization, uri, isActive, cleanUp } = options;
 
-    const currentTimeRef = useRef(initialization);
+    const lastTimeSaved = useRef(initialization);
 
     const player = useVideoPlayer(uri, voidFunction);
 
     useEffect(() => {
-        if (!player) return; 
+        if (!player) return;
+
+        let intervalId = null;
 
         if (isActive) {
-            if (currentTimeRef.current > 0) {
-                player.currentTime = currentTimeRef.current;
-            }
-            player.play();
+            // player.play();
+
+            intervalId = setInterval(() => {
+                lastTimeSaved.current = player.currentTime;
+            }, 2500);
+
         } else {
             player.pause();
-            currentTimeRef.current = player.currentTime;
+            lastTimeSaved.current = player.currentTime;
         }
 
         return () => {
-            player.pause();
-            const finalTime = player.currentTime;
-            currentTimeRef.current = finalTime; 
-            
+            if (intervalId !== null) {
+                clearInterval(intervalId);
+            }
+
             if (cleanUp) {
-                cleanUp(finalTime);
+                cleanUp(lastTimeSaved.current);
             }
         };
     }, [player, isActive, cleanUp]);

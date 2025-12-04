@@ -11,7 +11,8 @@ interface BasicUserInfo {
 
 export interface source {
     type: 'image' | 'video',
-    url: string
+    url: string,
+    id: string,
 }
 
 
@@ -28,5 +29,8 @@ interface Post {
 
     }
 }
+
+
+export type videoStatus = 'active' | 'prepared' | 'unmounted'
 
 export type { BasicUserInfo, Post };
