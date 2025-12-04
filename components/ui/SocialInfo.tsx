@@ -1,5 +1,5 @@
 import { flexboxStyles } from "@/styles/flexbox";
-import { BasicUserInfo } from "@/types/user";
+import { BasicUserInfo } from "@/types";
 import React, { JSX, memo } from "react";
 
 import { StyleSheet, Text, View } from "react-native";

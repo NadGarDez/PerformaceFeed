@@ -2,7 +2,7 @@ import { flexboxStyles } from "@/styles/flexbox";
 import React, { JSX } from "react";
 
 import { userStaticData } from "@/constants/staticData";
-import { BasicUserInfo } from "@/types/user";
+import { BasicUserInfo } from "@/types";
 import { FlatList, StyleSheet, View } from "react-native";
 import { UserStory } from "./sup/UserStory";
 
@@ -35,7 +35,7 @@ export const StoryList = (): JSX.Element => {
             <FlatList<BasicUserInfo>    
                 data={staticData}
                 horizontal
-                keyExtractor={(_, index) => index.toString()}
+                keyExtractor={({id}, index) => `story_item_${id}`}
                 renderItem={({ item , index}) => (
                     <View style={[
                         index === 0 ? styles.firtsItemMargin : index === staticData.length -1 ? styles.lastItemMargin : styles.centralItemMargin

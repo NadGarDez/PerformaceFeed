@@ -1,4 +1,4 @@
-import { BasicUserInfo } from "@/types/user";
+import { BasicUserInfo } from "@/types";
 import React, { JSX, memo } from "react";
 
 import { Image, StyleSheet, View } from "react-native";

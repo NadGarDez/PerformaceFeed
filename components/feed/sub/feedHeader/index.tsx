@@ -1,7 +1,7 @@
 import { SmallAvatar } from "@/components/ui/SmallAvatar";
 import { SocialInfo } from "@/components/ui/SocialInfo";
 import { flexboxStyles } from "@/styles/flexbox";
-import { BasicUserInfo } from "@/types/user";
+import { BasicUserInfo } from "@/types";
 import React, { JSX, memo } from "react";
 import { StyleSheet, View } from "react-native";
 import { FollowUnFollowButton } from "./sub/FollowUnfollowButton";
