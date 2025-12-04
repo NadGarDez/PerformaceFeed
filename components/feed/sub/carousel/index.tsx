@@ -3,7 +3,7 @@ import React, { memo, useRef, useState } from "react";
 import { source } from "@/types";
 import { StyleSheet, View } from "react-native";
 import PagerView, { PagerViewOnPageSelectedEvent } from 'react-native-pager-view';
-import { CarouselVideo } from "./sub/CarouselVideo";
+import { CarouselItem } from "./sub/carouselItem";
 import { PagerIndicator } from "./sub/PageIndicator";
 
 const styles = StyleSheet.create({
@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
     }
 });
 
-const numberOfVideos = Array(10).fill(0);
 
 interface  props {
     sources: source[]
@@ -45,14 +44,13 @@ export const Carousel = memo(
                     {
                         sources.map(
                             (item, index) => (
-                                <CarouselVideo key={index} />
+                                <CarouselItem source={item} key={index} />
                             )
                         )
                     }
-
                 </PagerView>
                 <View style={styles.idicatorStyles}>
-                    <PagerIndicator currentPage={currentPage} totalPages={numberOfVideos.length} />
+                    <PagerIndicator currentPage={currentPage} totalPages={sources.length} />
                 </View>
             </View>
         );

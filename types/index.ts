@@ -27,7 +27,6 @@ interface Post {
         createdAt: string,
 
     }
-
 }
 
 export type { BasicUserInfo, Post };
