@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 
-import { StyleSheet } from "react-native";
-import PagerView from 'react-native-pager-view';
+import { StyleSheet, View } from "react-native";
+import PagerView, { PagerViewOnPageSelectedEvent } from 'react-native-pager-view';
 import { CarouselVideo } from "./sub/CarouselVideo";
+import { PagerIndicator } from "./sub/PageIndicator";
 
 const styles = StyleSheet.create({
     container: {
@@ -10,6 +11,11 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 300
     },
+    idicatorStyles: {
+        position: 'absolute',
+        top: 10,
+        right: 10
+    }
 });
 
 const images = [
@@ -28,9 +34,25 @@ const getRandomImage = (): string => {
 const numberOfVideos = Array(10).fill(0);
 
 export const Carousel = (): React.JSX.Element => {
+
+    const [currentPage, setCurrentPage] = useState<number>(1);
+
+    const pagerRef = useRef<null | PagerView>(null);
+
+
+    const handlePageChange = (event: PagerViewOnPageSelectedEvent) => {
+        setCurrentPage(event.nativeEvent.position + 1);
+    }
+
+
+    const setPage = (index: number) => {
+        pagerRef.current?.setPage(index)
+    }
+
+
     return (
-        // <View style={styles.container}>
-            <PagerView initialPage={0} style={styles.container}>
+        <View style={styles.container}>
+            <PagerView initialPage={0} style={styles.container} onPageSelected={handlePageChange} ref={pagerRef}>
                 {
                     numberOfVideos.map(
                         (item, index) => (
@@ -40,6 +62,9 @@ export const Carousel = (): React.JSX.Element => {
                 }
 
             </PagerView>
-        // </View>
+            <View style={styles.idicatorStyles}>
+                <PagerIndicator currentPage={currentPage} totalPages={numberOfVideos.length} />
+            </View>
+        </View>
     );
 }
