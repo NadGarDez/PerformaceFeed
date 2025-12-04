@@ -3,7 +3,7 @@ import React, { JSX } from "react";
 
 import { userStaticData } from "@/constants/staticData";
 import { BasicUserInfo } from "@/types/user";
-import { StyleSheet, View, VirtualizedList } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 import { UserStory } from "./sup/UserStory";
 
 const styles = StyleSheet.create({
@@ -29,14 +29,13 @@ const styles = StyleSheet.create({
 const staticData = userStaticData.slice(-10);
 
 export const StoryList = (): JSX.Element => {
+
     return (
         <View style={styles.container}>
-            <VirtualizedList<BasicUserInfo>    
+            <FlatList<BasicUserInfo>    
                 data={staticData}
                 horizontal
                 keyExtractor={(_, index) => index.toString()}
-                getItemCount={(data) => data.length}
-                getItem={(data, index) => data[index]}
                 renderItem={({ item , index}) => (
                     <View style={[
                         index === 0 ? styles.firtsItemMargin : index === staticData.length -1 ? styles.lastItemMargin : styles.centralItemMargin
@@ -49,4 +48,3 @@ export const StoryList = (): JSX.Element => {
         </View>
     );
 }
-

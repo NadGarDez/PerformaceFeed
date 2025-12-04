@@ -1,12 +1,12 @@
-import React from "react";
+import React, { memo } from "react";
 
 import { Image, StyleSheet, View } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-       display: 'flex',
+        display: 'flex',
     },
-});  
+});
 
 const images = [
     'https://cdn.pixabay.com/photo/2025/11/26/15/14/15-14-15-273_1280.jpg',
@@ -20,13 +20,19 @@ const getRandomImage = (): string => {
     return images[randomIndex];
 }
 
-export const CarouselVideo = (): React.JSX.Element => {
-    return (
-       <View style={styles.container}>
-            <Image
-                source={{ uri: getRandomImage() }}
-                style={{ width: '100%', height: 300, borderRadius: 10 }}
-            />
-       </View>
-    );
-}
+export const CarouselVideo = memo(
+    (): React.JSX.Element => {
+        return (
+            <View style={styles.container}>
+                <Image
+                    source={{ uri: getRandomImage() }}
+                    style={{ width: '100%', height: 300, borderRadius: 10 }}
+                />
+            </View>
+        );
+    }
+)
+
+
+
+

@@ -1,6 +1,6 @@
 import { flexboxStyles } from "@/styles/flexbox";
 import { BasicUserInfo } from "@/types/user";
-import React, { JSX } from "react";
+import React, { JSX, memo } from "react";
 
 
 import { Image, StyleSheet, Text, View } from "react-native";
@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     container: {
         ...flexboxStyles.column,
         ...flexboxStyles.alignItemsCenter,
-        maxWidth:82
+        maxWidth: 82
     },
 
     seenCircle: {
@@ -46,15 +46,20 @@ const styles = StyleSheet.create({
 });
 
 
-export const UserStory = (props: BasicUserInfo): JSX.Element => {
-    return (
-        <View style={styles.container}>
-            <View style={props.seen ? styles.seenCircle : styles.unseenCircle}>
-                <Image source={{ uri: props.imageUri }} style={styles.avatar} />
+export const UserStory = memo(
+    (props: BasicUserInfo): JSX.Element => {
+        return (
+            <View style={styles.container}>
+                <View style={props.seen ? styles.seenCircle : styles.unseenCircle}>
+                    <Image source={{ uri: props.imageUri }} style={styles.avatar} />
+                </View>
+                <View>
+                    <Text style={styles.usernameText} numberOfLines={1}>{props.name}</Text>
+                </View>
             </View>
-            <View>
-                <Text style={styles.usernameText} numberOfLines={1}>{props.name}</Text>
-            </View>
-        </View>
-    );
-}
+        );
+    }
+)
+
+
+

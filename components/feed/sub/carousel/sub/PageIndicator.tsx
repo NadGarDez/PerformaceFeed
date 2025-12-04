@@ -1,4 +1,5 @@
 import { flexboxStyles } from "@/styles/flexbox";
+import { memo } from "react";
 import { StyleSheet, Text, View } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -7,8 +8,8 @@ const styles = StyleSheet.create({
         paddingVertical: 8,
         paddingHorizontal: 16,
         borderRadius: 10,
-        maxWidth:50,
-        maxHeight:50,
+        maxWidth: 50,
+        maxHeight: 50,
         backgroundColor: "#000000A0", // Semi-transparente
     },
     currentPage: {
@@ -33,13 +34,17 @@ interface Props {
     currentPage: number;
 }
 
-export const PagerIndicator = ({ totalPages, currentPage }: Props) => {
-    const safeCurrentPage = Math.min(Math.max(1, currentPage), totalPages);
-    return (
-        <View style={styles.container}>
-            <Text style={styles.currentPage}>{safeCurrentPage}</Text>
-            <Text style={styles.separator}>/</Text>
-            <Text style={styles.totalPages}>{totalPages}</Text>
-        </View>
-    );
-};
+export const PagerIndicator = memo(
+    ({ totalPages, currentPage }: Props) => {
+        const safeCurrentPage = Math.min(Math.max(1, currentPage), totalPages);
+        return (
+            <View style={styles.container}>
+                <Text style={styles.currentPage}>{safeCurrentPage}</Text>
+                <Text style={styles.separator}>/</Text>
+                <Text style={styles.totalPages}>{totalPages}</Text>
+            </View>
+        );
+    }
+)
+
+

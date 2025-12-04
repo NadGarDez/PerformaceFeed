@@ -1,6 +1,6 @@
 import { flexboxStyles } from "@/styles/flexbox";
 import { BasicUserInfo } from "@/types/user";
-import React, { JSX } from "react";
+import React, { JSX, memo } from "react";
 
 import { StyleSheet, Text, View } from "react-native";
 
@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     container: {
         ...flexboxStyles.flex1,
         ...flexboxStyles.justifyContentCenter,
-       
+
     },
     textContainer: {
         ...flexboxStyles.columJustifyCenterFlexStart,
@@ -26,16 +26,20 @@ const styles = StyleSheet.create({
 
 
 
-export const SocialInfo = (props:BasicUserInfo): JSX.Element => {
+export const SocialInfo = memo(
+    (props: BasicUserInfo): JSX.Element => {
 
-    const {name, username} = props;
+        const { name, username } = props;
 
-    return (
-        <View style={styles.container}>
-            <View style={styles.textContainer}>
-                <Text style={styles.userNameTextStyle}>{name}</Text>
-                <Text style={styles.userHandleTextStyle}>{username}</Text>
+        return (
+            <View style={styles.container}>
+                <View style={styles.textContainer}>
+                    <Text style={styles.userNameTextStyle}>{name}</Text>
+                    <Text style={styles.userHandleTextStyle}>{username}</Text>
+                </View>
             </View>
-        </View>
-    );
-}
+        );
+    }
+)
+
+

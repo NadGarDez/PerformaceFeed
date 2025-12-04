@@ -1,5 +1,5 @@
 import { BasicUserInfo } from "@/types/user";
-import React, { JSX } from "react";
+import React, { JSX, memo } from "react";
 
 import { Image, StyleSheet, View } from "react-native";
 
@@ -39,14 +39,19 @@ const styles = StyleSheet.create({
 
 
 
-export const SmallAvatar = (props:BasicUserInfo): JSX.Element => {
+export const SmallAvatar = memo(
+    (props: BasicUserInfo): JSX.Element => {
 
-    const {seen, imageUri} = props
-    return (
-        <View style={styles.container}>
-           <View style={seen ? styles.seenAvatarStory : styles.unseenAvatarStory}>
-              <Image style={styles.avatar} source={{uri: imageUri}} />
-           </View>
-        </View>
-    );
-}
+        const { seen, imageUri } = props
+        return (
+            <View style={styles.container}>
+                <View style={seen ? styles.seenAvatarStory : styles.unseenAvatarStory}>
+                    <Image style={styles.avatar} source={{ uri: imageUri }} />
+                </View>
+            </View>
+        );
+    }
+)
+
+
+
