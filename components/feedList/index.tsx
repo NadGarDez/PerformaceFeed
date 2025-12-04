@@ -1,5 +1,6 @@
+import { FlashList } from "@shopify/flash-list";
 import React, { JSX } from "react";
-import { FlatList, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { Feed } from "../feed";
 
 
@@ -9,14 +10,15 @@ const styles = StyleSheet.create({
     }
 })
 
-const feedsNumber = Array(50).fill(0);
+const feedsNumber = Array(200).fill(0);
 
 export const FeedList = ():JSX.Element => {
     return (
-        <FlatList 
+        <FlashList 
             data={feedsNumber}
             renderItem={()=><Feed />}
             keyExtractor={(_, index) => `feed_${index}`} 
+            style={styles.container}
         />
     )
 }
