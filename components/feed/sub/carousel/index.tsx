@@ -1,12 +1,16 @@
 import React from "react";
 
-import { Image, StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
+import PagerView from 'react-native-pager-view';
+import { CarouselVideo } from "./sub/CarouselVideo";
 
 const styles = StyleSheet.create({
     container: {
-       display: 'flex',
+        display: 'flex',
+        width: '100%',
+        height: 300
     },
-});  
+});
 
 const images = [
     'https://cdn.pixabay.com/photo/2025/11/26/15/14/15-14-15-273_1280.jpg',
@@ -20,13 +24,22 @@ const getRandomImage = (): string => {
     return images[randomIndex];
 }
 
+
+const numberOfVideos = Array(10).fill(0);
+
 export const Carousel = (): React.JSX.Element => {
     return (
-       <View style={styles.container}>
-            <Image
-                source={{ uri: getRandomImage() }}
-                style={{ width: '100%', height: 300, borderRadius: 10 }}
-            />
-       </View>
+        // <View style={styles.container}>
+            <PagerView initialPage={0} style={styles.container}>
+                {
+                    numberOfVideos.map(
+                        (item, index) => (
+                            <CarouselVideo key={index} />
+                        )
+                    )
+                }
+
+            </PagerView>
+        // </View>
     );
 }
