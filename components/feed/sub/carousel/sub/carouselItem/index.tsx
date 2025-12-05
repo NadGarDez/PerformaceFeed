@@ -48,9 +48,8 @@ export const CarouselItem = memo(
 
         const maxBuffer = useMemo(
             () => {
-                if (itemStatus === 'active') return 5000;
-                else if (itemStatus === 'prepared') return 2000
-                return 0
+                if (itemStatus === 'unmounted') return 0;
+                return 1000
             },
             [itemStatus]
         )
@@ -58,7 +57,6 @@ export const CarouselItem = memo(
         const handleOnLoad = useCallback(
             async () => {
                 const videoProgress = await getProgress(source.id);
-                console.log(videoProgress)
                 if (videoProgress && videoProgress > 0) {
                     videoRef.current?.seek(videoProgress);
                 }
