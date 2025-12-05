@@ -33,7 +33,7 @@ export const Carousel = memo(
         const pagerRef = useRef<null | PagerView>(null);
 
         const handlePageChange = (event: PagerViewOnPageSelectedEvent) => {
-            setCurrentPage(event.nativeEvent.position + 1);
+            setCurrentPage(event.nativeEvent.position);
         }
 
         const getItemStatusCalculator = useCallback(
