@@ -42,7 +42,6 @@ export const Feed = memo(
     (props: props): JSX.Element => {
         const { user, data: {sources, description , ...rest} , rule, id} = props;
 
-        console.log(rule, id )
         return (
             <View style={styles.container}>
                 <View style={styles.headerContaienr}>

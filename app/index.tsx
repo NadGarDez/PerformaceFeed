@@ -2,6 +2,7 @@ import { FeedList } from '@/components/feedList';
 import { Header } from '@/components/header';
 import { StoryList } from '@/components/StoryList';
 import { TabBar } from '@/components/tabBar';
+import { VideoContextProvider } from '@/context/VideoContext';
 import { flexboxStyles } from '@/styles/flexbox';
 import React, { JSX } from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -18,7 +19,9 @@ export default function HomeScreen(): JSX.Element {
       <View style={styles.stateHorizontalListContainer}>
         <StoryList />
       </View>
-      <FeedList />
+      <VideoContextProvider>
+        <FeedList />
+      </VideoContextProvider>
       <TabBar />
     </SafeAreaView>
   );

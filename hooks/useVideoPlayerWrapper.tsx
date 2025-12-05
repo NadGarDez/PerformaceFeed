@@ -1,7 +1,12 @@
 import { useVideoPlayer, VideoPlayer } from "expo-video";
 import { useEffect, useRef } from "react";
 
-const voidFunction = (player: VideoPlayer) => { };
+const configFunction = (player: VideoPlayer) => {
+    player.audioMixingMode = 'mixWithOthers';
+
+    player.loop = false;
+    player.volume = 1.0;
+};
 
 interface options {
     uri: string,
@@ -11,11 +16,11 @@ interface options {
 }
 
 export const useVideoPlayerWrapper = (options: options): VideoPlayer | null => {
-    const { initialization, uri, isActive, cleanUp } = options;
+    const { initialization = 0, uri, isActive, cleanUp } = options;
 
     const lastTimeSaved = useRef(initialization);
 
-    const player = useVideoPlayer(uri, voidFunction);
+    const player = useVideoPlayer(uri, configFunction);
 
     useEffect(() => {
         if (!player) return;
@@ -23,8 +28,8 @@ export const useVideoPlayerWrapper = (options: options): VideoPlayer | null => {
         let intervalId = null;
 
         if (isActive) {
+            player.currentTime = lastTimeSaved.current
             player.play();
-
             intervalId = setInterval(() => {
                 lastTimeSaved.current = player.currentTime;
             }, 2500);

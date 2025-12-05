@@ -7,17 +7,19 @@ import { StyleSheet, View } from 'react-native';
 interface props {
   uri: string,
   cleanUp?: (currentTime: number) => void,
-  isActive: boolean
+  isActive: boolean,
+  initialization:number
 }
 
 export const VideoPlayer = memo(
   (props: props): JSX.Element => {
 
-    const { uri, isActive } = props;
+    const { uri, isActive, initialization , cleanUp} = props;
     const player = useVideoPlayerWrapper({
       uri,
       isActive,
-      initialization: 0
+      initialization: initialization,
+      cleanUp
     })
 
     if (!player) return <></>
