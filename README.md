@@ -1,50 +1,103 @@
-# Welcome to your Expo app 👋
+# 🚀 High Performance Feed App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Hi everyone, my name is Iranad. This is a demonstration project implementing a high-performance social media feed built with the Expo framework.
 
-## Get started
+The primary goal of this interpretation is to achieve a performant user experience by implementing rigorous memory and CPU optimization, especially when handling embedded video content.
 
-1. Install dependencies
+The application is fully supported on Android and iOS operating systems, provided the proper development environment is established.
 
-   ```bash
-   npm install
-   ```
+## ✨ Features
 
-2. Start the app
+- **Optimized Rendering**: Utilizes FlashList for efficient handling of large, dynamically rendered lists.
+- **Intelligent Video Management**: Implements a sophisticated state machine to control video loading and playback, minimizing resource consumption.
+- **Cross-Platform Support**: Seamless compatibility with both Android and iOS devices.
 
-   ```bash
-   npx expo start
-   ```
+## 🎨 Design and User Interface
 
-In the output, you'll find options to open the app in a
+The design closely follows modern social media platforms, featuring expected elements such as avatars, stories, descriptions, and posts.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+The overall aesthetic aims for warmth and simplicity, employing a layout and color palette reminiscent of classic Instagram versions from the early 2010s.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+> **Implementation Note**: This project focuses purely on demonstrating frontend performance. Therefore, it uses static, mock data and all button callbacks are void functions.
 
-## Get a fresh project
+## 🧠 The Performance Approach
 
-When you're ready, run:
+Superior performance is achieved through two core engineering principles: leveraging FlashList and implementing a complex state machine for media resource management.
 
-```bash
-npm run reset-project
-```
+### 1. Dynamic Rendering with FlashList
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Every feed item is rendered dynamically using FlashList, a high-performance alternative to React Native's FlatList, which is crucial for handling infinite feeds rich in multimedia content.
 
-## Learn more
+Each post renders user information, a description, and a video carousel.
 
-To learn more about developing your project with Expo, look at the following resources:
+### 2. Video and Post State Machine
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+The loading and playback of videos are governed by a strict set of rules to minimize memory usage and buffer outside the user's view.
 
-## Join the community
+#### A. Video Statuses
 
-Join our community of developers creating universal apps.
+Every video within a post can exist in one of three states:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+| Status    | Description                                                                 | Resource Consumption                                 |
+|-----------|-----------------------------------------------------------------------------|------------------------------------------------------|
+| Active    | Currently playing.                                                          | High (Playback and network bandwidth).               |
+| Prepared  | Paused, but buffering or ready for instant playback has begun.             | Moderate (Preloading for smooth transition).         |
+| Unmount   | Completely paused and un-buffered.                                          | Minimum (Resource released).                         |
+
+#### B. Post States (Proximity Tags)
+
+To coordinate video statuses, each post is tagged with a state (0, 1, 2) based on its proximity to the center of the screen:
+
+| Tag | State Name      | Description                                          |
+|-----|-----------------|------------------------------------------------------|
+| 0   | Focused Post    | The post currently visible and centered in the viewport. |
+| 1   | Adjacent Post   | The posts immediately before or after the focused post. |
+| 2   | The Rest        | All other posts far from the immediate focus.        |
+
+### 🔑 The Core Optimization Logic
+
+The availability of video statuses is strictly constrained by the state of its parent post. This constraint is the secret to high performance:
+
+| Post State | Allowed Video Statuses        | Performance Implication                                      |
+|------------|-------------------------------|-------------------------------------------------------------|
+| 0 (Focused) | `['active', 'prepared', 'unmount']` | Playback enabled. The visible video can become active.      |
+| 1 (Adjacent) | `['prepared', 'unmount']`     | Preloading enabled. The first video in adjacent posts can be prepared for zero-latency scrolling. |
+| 2 (The Rest) | `['unmount']`                 | Resources released. All far-off videos are kept inactive.   |
+
+**Resulting Playback Rules:**
+- Only the video within the focused post (State 0) can be **Active** (playing).
+- Adjacent videos (State 1) are allowed to be **Prepared** (pre-buffered).
+- All other videos default to **Unmount**.
+
+## 🛠️ Installation and Setup
+
+Follow these steps to get the project running on your local machine.
+
+### Prerequisites
+
+Ensure you have the following installed:
+- Node.js (v18 or higher recommended)
+- Expo CLI
+- iOS Development: Xcode (macOS only) for iOS builds
+- Android Development: Android Studio and Android SDK for Android builds
+- An Android/iOS emulator/simulator or a physical device.
+
+### ⚠️ Important Development Note
+
+**This project uses custom fonts and/or libraries that require native compilation. Therefore, it cannot run in the Expo Go app.** You must build the app using the Expo Development Build or EAS Build.
+
+### Setup Options
+
+#### Option 1: Development Build (Recommended for Local Development)
+Run the following commands based on your target platform:
+
+**For iOS:**
+npx expo run:ios
+
+
+**For iOS:**
+npx expo run:android
+
+### Option 2: EAS Build (For Testing on Physical Devices)
+
+https://docs.expo.dev/build/introduction/
