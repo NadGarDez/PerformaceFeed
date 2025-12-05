@@ -25,7 +25,7 @@ interface props {
     rule: number
 }
 
-export const Carousel = memo( // en este archivo se gestionaria la lectura de la matriz de videos 
+export const Carousel = memo( 
     (props: props): React.JSX.Element => {
 
         const { sources, rule } = props
