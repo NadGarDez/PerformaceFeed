@@ -2,7 +2,7 @@ import { source } from "@/types";
 import React, { memo, useCallback, useMemo, useRef } from "react";
 
 import { getProgress, saveProgress } from "@/utils/videoUtils";
-import { StyleSheet, View } from "react-native";
+import { Alert, StyleSheet, View } from "react-native";
 import Video, { OnLoadData, OnProgressData, VideoRef } from 'react-native-video';
 
 const styles = StyleSheet.create({
@@ -56,8 +56,15 @@ export const CarouselItem = memo(
         }, []);
 
         const handleError = useCallback((error: any) => {
-            console.log(`ERROR: ID: ${source.id}, Details: ${JSON.stringify(error)}`);
-        }, [source.id]);
+            const errorMessage = `ID del Video: ${source.id} / URL del Video: ${source.url} / Detalles del Error: ${JSON.stringify(error)}
+            `;
+
+            Alert.alert(
+                '¡Error al Cargar Video!',
+                errorMessage,
+                [{ text: 'Aceptar' }]
+            );
+        }, [source.id, source.url]);
 
         const handleProgress = useCallback(async (data: OnProgressData) => {
             await saveProgress(source.id, data.currentTime);

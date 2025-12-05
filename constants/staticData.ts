@@ -194,8 +194,8 @@ const initialPost: Post[] = [
         },
         data: {
             sources: [
-                { id: 'source_4_0', type: 'video', url: 'https://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4' },
-                { id: 'source_4_1', type: 'video', url: 'https://www.sample-videos.com/video123/mp4/480/big_buck_bunny_480p_1mb.mp4' }
+                { id: 'source_4_0', type: 'video', url: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4' },
+                { id: 'source_4_1', type: 'video', url: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4' }
             ],
             description: "Mira esta increíble colección de clips sobre \"For Bigger Blazes\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 4 de nuestra serie.",
             likes: 4501,
@@ -215,8 +215,8 @@ const initialPost: Post[] = [
         },
         data: {
             sources: [
-                { id: 'source_5_0', type: 'video', url: 'https://www.sample-videos.com/video123/mp4/360/big_buck_bunny_360p_1mb.mp4' },
-                { id: 'source_5_1', type: 'video', url: 'https://www.sample-videos.com/video123/mp4/240/big_buck_bunny_240p_1mb.mp4' }
+                { id: 'source_5_0', type: 'video', url: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4' },
+                { id: 'source_5_1', type: 'video', url: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4' }
             ],
             description: "Mira esta increíble colección de clips sobre \"Subaru Outback On Street And Dirt\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 5 de nuestra serie.",
             likes: 7890,
@@ -236,9 +236,8 @@ const initialPost: Post[] = [
         },
         data: {
             sources: [
-                { id: 'source_6_0', type: 'video', url: 'http://techslides.com/demos/sample-videos/small.mp4' },
-                { id: 'source_6_1', type: 'video', url: 'http://clips.vorwaerts-gmbh.de/VfE_html5.mp4' },
-                { id: 'source_6_2', type: 'video', url: 'https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4' }
+                { id: 'source_6_0', type: 'video', url: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4' },
+                { id: 'source_6_1', type: 'video', url: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4' }
             ],
             description: "Mira esta increíble colección de clips sobre \"We Are Going On Bullrun\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 6 de nuestra serie.",
             likes: 3105,
@@ -258,8 +257,8 @@ const initialPost: Post[] = [
         },
         data: {
             sources: [
-                { id: 'source_7_0', type: 'video', url: 'https://images-assets.nasa.gov/video/One%20Small%20Step/One%20Small%20Step~small.mp4' },
-                { id: 'source_7_1', type: 'video', url: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c0/Big_Buck_Bunny_4K.webm/Big_Buck_Bunny_4K.webm.480p.vp9.webm' }
+                { id: 'source_7_0', type: 'video', url: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4' },
+                { id: 'source_7_1', type: 'video', url: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4' }
             ],
             description: "Mira esta increíble colección de clips sobre \"What care can you get for a grand?\" y otros temas emocionantes. ¡Desliza para ver más! 🎬 Este es el post número 7 de nuestra serie.",
             likes: 14890,
@@ -333,7 +332,6 @@ const initialPost: Post[] = [
         }
     },
 ];
-
 function generateAdditionalPosts(basePosts: Post[], targetCount: number): Post[] { // funcion de utilidad generada por ia
     const allPosts = [...basePosts];
     const baseLength = basePosts.length;
