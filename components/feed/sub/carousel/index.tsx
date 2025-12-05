@@ -44,7 +44,7 @@ export const Carousel = memo( // en este archivo se gestionaria la lectura de la
             (pageIndex: number): videoStatus => {
                 return ruleSelector[rule](pageIndex,currentPage)
             },
-            [currentPage, ruleSelector]
+            [currentPage, ruleSelector, rule]
         )
 
         return (
