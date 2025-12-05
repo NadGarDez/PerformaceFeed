@@ -29,32 +29,42 @@ export const Carousel = memo(
     (props: props): React.JSX.Element => {
 
         const { sources, rule } = props
-
         const [currentPage, setCurrentPage] = useState<number>(1);
-
         const pagerRef = useRef<null | PagerView>(null);
-
 
         const handlePageChange = (event: PagerViewOnPageSelectedEvent) => {
             setCurrentPage(event.nativeEvent.position + 1);
         }
 
-
-        const getItemStatus = useCallback(
+        const getItemStatusCalculator = useCallback(
             (pageIndex: number): videoStatus => {
-                return ruleSelector[rule](pageIndex,currentPage)
+                return ruleSelector[rule](pageIndex, currentPage)
             },
-            [currentPage, ruleSelector, rule]
+            [currentPage, rule] 
         )
 
         return (
             <View style={styles.container}>
-                <PagerView initialPage={0} style={styles.container} onPageSelected={handlePageChange} ref={pagerRef}>
+                <PagerView 
+                    initialPage={0} 
+                    style={styles.container} 
+                    onPageSelected={handlePageChange} 
+                    ref={pagerRef}
+                >
                     {
                         sources.map(
-                            (item, index) => (
-                                <CarouselItem source={item} key={index} itemStatus={getItemStatus(index)} />
-                            )
+                            (item, index) => {
+                                
+                                const itemStatusValue = getItemStatusCalculator(index)
+
+                                return (
+                                    <CarouselItem 
+                                        source={item} 
+                                        key={item.id} 
+                                        itemStatus={itemStatusValue} 
+                                    />
+                                );
+                            }
                         )
                     }
                 </PagerView>
@@ -64,8 +74,4 @@ export const Carousel = memo(
             </View>
         );
     }
-
 )
-
-
-

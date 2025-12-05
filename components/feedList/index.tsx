@@ -1,6 +1,7 @@
 import { staticPosts } from "@/constants/staticData";
+import { clearAllVideoProgress } from "@/utils/videoUtils";
 import { FlashList } from "@shopify/flash-list";
-import React, { JSX, useCallback, useState } from "react";
+import React, { JSX, useCallback, useEffect, useState } from "react";
 import { StyleSheet, ViewToken } from "react-native";
 import { Feed } from "../feed";
 
@@ -38,12 +39,20 @@ export const FeedList = (): JSX.Element => {
         [visibleItem]
     )
 
+    useEffect(
+        () => {
+            return  () => {
+                clearAllVideoProgress()
+            }
+        }
+    )
+
 
     return (
         <FlashList
             data={staticPosts}
             renderItem={({ item, index }) => <Feed rule={ruleCalculation(index)} {...item} />}
-            keyExtractor={(_, index) => `feed_${index}`}
+            keyExtractor={(item) => `feed_${item.id}`}
             style={styles.container}
             onViewableItemsChanged={onViewableItemsChanged}
             viewabilityConfig={{

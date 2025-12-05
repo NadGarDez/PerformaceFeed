@@ -1,7 +1,7 @@
 import { source } from "@/types";
 import React, { memo, useCallback, useMemo, useRef } from "react";
 
-import { useVideoContext } from "@/context/VideoContext";
+import { getProgress, saveProgress } from "@/utils/videoUtils";
 import { StyleSheet, View } from "react-native";
 import Video, { OnProgressData, VideoRef } from 'react-native-video';
 
@@ -11,7 +11,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 15,
-        overflow: 'hidden'
+        overflow: 'hidden',
+        backgroundColor: '#7a7575ff'
 
     },
     video: {
@@ -33,21 +34,16 @@ interface props {
 export const CarouselItem = memo(
     (props: props): React.JSX.Element => {
 
-
-        const { getProgress, saveProgress } = useVideoContext()
-
         const { source, itemStatus } = props
-
         const videoRef = useRef<VideoRef>(null);
 
         const handleError = useCallback((error: any) => {
             console.error('Error en video:', error);
         }, []);
 
-        const handleProgress = useCallback((data: OnProgressData) => {
-            saveProgress(source.id, data.currentTime);
-
-        }, [itemStatus, saveProgress, source.id]);
+        const handleProgress = useCallback(async (data: OnProgressData) => {
+            await saveProgress(source.id, data.currentTime);
+        }, [source.id]);
 
 
         const maxBuffer = useMemo(
@@ -57,41 +53,40 @@ export const CarouselItem = memo(
                 return 0
             },
             [itemStatus]
-
         )
-
 
         const handleOnLoad = useCallback(
-            () => {
-                const progress = getProgress(source.id)
-                if(!!progress && progress > 0 )  videoRef.current?.seek(progress);
+            async () => {
+                const videoProgress = await getProgress(source.id);
+                console.log(videoProgress)
+                if (videoProgress && videoProgress > 0) {
+                    videoRef.current?.seek(videoProgress);
+                }
             },
-            [getProgress, source.id, videoRef]
+            [source.id, itemStatus]
         )
+
+        const videoSource = useMemo(() => ({
+            uri: source.url,
+            bufferConfig: {
+                maxBufferMs: maxBuffer
+            }
+        }), [source.url, maxBuffer]);
 
         return (
             <View style={styles.container}>
                 <Video
-                    source={{
-                        uri: source.url, bufferConfig: {
-                            maxBufferMs: maxBuffer
-                        }
-                    }}
-                    onProgress={
-                        handleProgress
-                    }
+                    source={videoSource}
+                    onProgress={handleProgress}
                     onLoad={handleOnLoad}
                     progressUpdateInterval={3000}
                     ref={videoRef}
                     onError={handleError}
                     style={styles.video}
                     paused={itemStatus !== 'active'}
+                    key={source.id}
                 />
             </View>
         );
     }
 )
-
-
-
-
