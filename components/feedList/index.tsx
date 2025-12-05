@@ -33,7 +33,7 @@ export const FeedList = (): JSX.Element => {
     const ruleCalculation = useCallback(
         (feedIndex:number) => {
             if(feedIndex === visibleItem) return 0;
-            if(feedIndex -1 === visibleItem) return 1; 
+            if(visibleItem + 1 === feedIndex || visibleItem - 1 === feedIndex) return 1; 
             return 2
         },
         [visibleItem]
