@@ -1,17 +1,28 @@
 import { source } from "@/types";
-import React, { memo, useCallback, useEffect, useState } from "react";
+import React, { memo, useCallback, useMemo, useRef } from "react";
 
 import { useVideoContext } from "@/context/VideoContext";
 import { StyleSheet, View } from "react-native";
-import { VideoPlayer } from "./sub/VideoPlayer";
+import Video, { OnProgressData, VideoRef } from 'react-native-video';
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        borderRadius: 15,
+        overflow: 'hidden'
 
     },
+    video: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0,
+        width: '100%',
+        height: '100%',
+    }
 });
 
 interface props {
@@ -22,36 +33,60 @@ interface props {
 export const CarouselItem = memo(
     (props: props): React.JSX.Element => {
 
-        const [lastSavedPoint, setLastSavedPoint] = useState<number>(0)
 
         const { getProgress, saveProgress } = useVideoContext()
 
         const { source, itemStatus } = props
 
-        useEffect(
+        const videoRef = useRef<VideoRef>(null);
+
+        const handleError = useCallback((error: any) => {
+            console.error('Error en video:', error);
+        }, []);
+
+        const handleProgress = useCallback((data: OnProgressData) => {
+            saveProgress(source.id, data.currentTime);
+
+        }, [itemStatus, saveProgress, source.id]);
+
+
+        const maxBuffer = useMemo(
             () => {
-                setLastSavedPoint(getProgress(source.id) ?? 0)
-
+                if (itemStatus === 'active') return 5000;
+                else if (itemStatus === 'prepared') return 2000
+                return 0
             },
-            [getProgress, setLastSavedPoint, source]
+            [itemStatus]
+
         )
 
-        const cleanUp = useCallback(
-            (currentTime: number)=> {
-                console.log('cleanup', source.id)
-                setLastSavedPoint(currentTime);
-                saveProgress(source.id, currentTime)
+
+        const handleOnLoad = useCallback(
+            () => {
+                const progress = getProgress(source.id)
+                if(!!progress && progress > 0 )  videoRef.current?.seek(progress);
             },
-            [setLastSavedPoint, saveProgress , source]
+            [getProgress, source.id, videoRef]
         )
-
-        console.log('last save point:',lastSavedPoint, source.id)
-
-        if (itemStatus === 'unmounted') return <></>
 
         return (
             <View style={styles.container}>
-                <VideoPlayer uri={source.url} isActive={itemStatus === 'active'} initialization={lastSavedPoint} cleanUp={cleanUp}/>
+                <Video
+                    source={{
+                        uri: source.url, bufferConfig: {
+                            maxBufferMs: maxBuffer
+                        }
+                    }}
+                    onProgress={
+                        handleProgress
+                    }
+                    onLoad={handleOnLoad}
+                    progressUpdateInterval={3000}
+                    ref={videoRef}
+                    onError={handleError}
+                    style={styles.video}
+                    paused={itemStatus !== 'active'}
+                />
             </View>
         );
     }

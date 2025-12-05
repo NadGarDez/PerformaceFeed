@@ -41,10 +41,10 @@
       ],
       "expo-font",
       [
-        "expo-video",
+        "react-native-video",
         {
-          "supportsBackgroundPlayback": true,
-          "supportsPictureInPicture": true
+          "exclude": [], 
+          "iFrame": true 
         }
       ]
     ],
