@@ -3,7 +3,7 @@ import React, { memo, useCallback, useMemo, useRef } from "react";
 
 import { getProgress, saveProgress } from "@/utils/videoUtils";
 import { StyleSheet, View } from "react-native";
-import Video, { OnProgressData, VideoRef } from 'react-native-video';
+import Video, { OnLoadData, OnProgressData, VideoRef } from 'react-native-video';
 
 const styles = StyleSheet.create({
     container: {
@@ -36,10 +36,28 @@ export const CarouselItem = memo(
 
         const { source, itemStatus } = props
         const videoRef = useRef<VideoRef>(null);
+        const loadStartTimeRef = useRef<number | null>(null);
+
+        const handlePlaybackStart = useCallback(() => {
+            if (loadStartTimeRef.current !== null) {
+                const timeToFirstFrameMs = Date.now() - loadStartTimeRef.current;
+                console.log(`TIME_TO_FIRST_FRAME: ${timeToFirstFrameMs}ms, ID: ${source.id}`);
+                loadStartTimeRef.current = null;
+            }
+            console.log(`PLAYBACK_START: ID: ${source.id}`);
+        }, [source.id]);
+
+        const handlePlaybackCompletion = useCallback(() => {
+            console.log(`PLAYBACK_COMPLETION: ID: ${source.id}`);
+        }, [source.id]);
+
+        const handleLoadStart = useCallback(() => {
+            loadStartTimeRef.current = Date.now();
+        }, []);
 
         const handleError = useCallback((error: any) => {
-            console.error('Error en video:', error);
-        }, []);
+            console.log(`ERROR: ID: ${source.id}, Details: ${JSON.stringify(error)}`);
+        }, [source.id]);
 
         const handleProgress = useCallback(async (data: OnProgressData) => {
             await saveProgress(source.id, data.currentTime);
@@ -55,13 +73,13 @@ export const CarouselItem = memo(
         )
 
         const handleOnLoad = useCallback(
-            async () => {
+            async (data: OnLoadData) => {
                 const videoProgress = await getProgress(source.id);
                 if (videoProgress && videoProgress > 0) {
                     videoRef.current?.seek(videoProgress);
                 }
             },
-            [source.id, itemStatus]
+            [source.id]
         )
 
         const videoSource = useMemo(() => ({
@@ -77,12 +95,16 @@ export const CarouselItem = memo(
                     source={videoSource}
                     onProgress={handleProgress}
                     onLoad={handleOnLoad}
+                    onLoadStart={handleLoadStart}
+                    onReadyForDisplay={handlePlaybackStart}
+                    onEnd={handlePlaybackCompletion}
                     progressUpdateInterval={3000}
                     ref={videoRef}
                     onError={handleError}
                     style={styles.video}
                     paused={itemStatus !== 'active'}
                     key={source.id}
+                    resizeMode="cover"
                 />
             </View>
         );
